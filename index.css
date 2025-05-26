@@ -829,38 +829,38 @@ h1.style2 span.p:nth-child(n + 2), h2.style2 span.p:nth-child(n + 2), h3.style2 
 }
 
 /* Button Style 1 */
-.buttons.style1 {
+/* Base/Desktop Styles */
+ul#buttons04.style1 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  width: 100%; /* Ensure it spans available width */
-  align-items: stretch; /* Bento UI: Grid items fill their cells */
-  justify-items: stretch; /* Bento UI: Grid items fill their cells */
+  grid-template-columns: repeat(3, 1fr); /* Uniform 3 columns for desktop */
+  gap: 1.5rem; /* Consistent gap */
+  width: 100%;
 }
 
-.buttons.style1 li { /* Ensure li takes full width of grid cell */
+.buttons.style1 li { 
   width: 100%;
-  display: flex; /* Allow anchor to stretch if li is stretched */
+  display: flex; 
 }
 
 .buttons.style1 li a {
-  display: flex; /* Changed from inline-flex for better control */
-  width: 100%; /* Fill grid cell / flex item basis */
-  height: 100%; /* Bento UI: Make anchor fill the li's height */
-  min-height: 4rem; /* Default height */
-  /* height: auto; /* Replaced by height: 100% for Bento */
-  line-height: 1.5; /* Adjusted for better text flow */
-  padding: 1rem; /* Consistent padding */
+  display: flex; 
+  width: 100%; 
+  height: auto; /* Allow content to define height */
+  min-height: 6rem; /* Uniform minimum height for desktop buttons */
+  line-height: 1.5; 
+  padding: 1rem; 
   vertical-align: middle;
   font-family: 'DM Sans', sans-serif;
-  font-size: 1em; /* Adjusted for responsiveness */
+  font-size: 1em; 
   font-weight: 400;
-  border-radius: 1.5rem; /* Bento UI: Larger border radius */
-  flex-direction: row; /* Default internal layout */
-  justify-content: center; /* Default internal layout */
-  align-items: center; /* Default internal layout */
-  text-align: center; /* Default internal layout */
+  border-radius: 1.5rem; 
+  flex-direction: row; 
+  justify-content: center; 
+  align-items: center; 
+  text-align: center; 
   white-space: normal;
+  background-color: #E8F5F7; /* Standard background for desktop */
+  color: #536163; /* Standard text color for desktop */
   transition: transform 0.25s ease, color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
 }
 
@@ -882,113 +882,20 @@ h1.style2 span.p:nth-child(n + 2), h2.style2 span.p:nth-child(n + 2), h3.style2 
   overflow: hidden;
   flex-grow: 1;
   flex-shrink: 1;
-  text-align: center; /* Default to center */
-  width: auto; /* Adjust width as needed */
+  text-align: center; 
+  width: auto; 
 }
 
-.buttons.style1 .button {
-  background-color: #E8F5F7;
-  color: #536163;
-}
+/* .buttons.style1 .button { */ /* Already covered by .buttons.style1 li a */
+  /* background-color: #E8F5F7; */
+  /* color: #536163; */
+/* } */
 
 .buttons.style1 li a:hover {
   transform: scale(1.0425);
 }
 
-/* Button Shapes */
-.buttons.style1 li.button-standard-rect a {
-  /* Default styling is already standard rect */
-  /* aspect-ratio: 3/1; /* Optional: if a specific ratio is desired */
-  min-height: 4rem; /* Example height */
-  /* Padding and other specific layout properties are inherited or defined below */
-}
-
-.buttons.style1 li.button-large-square a {
-  aspect-ratio: 1/1;
-  /* min-height: 10rem; /* min-height is less relevant when height is 100% and cells stretch */
-  flex-direction: column; 
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 1rem; /* Ensure padding is consistent */
-}
-
-.buttons.style1 li.button-large-square a svg {
-  margin-right: 0; /* Remove right margin for centered icon */
-  margin-bottom: 0.5em; /* Space between icon and text */
-  height: 2.5rem; /* Larger icon for square button */
-  width: 2.5em;
-}
-
-.buttons.style1 li.button-large-square a .label {
-  font-size: 0.9em;
-  width: 90%; /* Allow text to wrap */
-}
-
-.buttons.style1 li.button-portrait-rect a {
-  aspect-ratio: 2/3;
-  min-height: 10rem; /* Example height, less relevant with height: 100% */
-  flex-direction: column; 
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 1rem; /* Ensure padding is consistent */
-}
-
-.buttons.style1 li.button-portrait-rect a svg {
-  margin-right: 0;
-  margin-bottom: 0.5em;
-  height: 2rem;
-  width: 2em;
-}
-
-.buttons.style1 li.button-portrait-rect a .label {
-  font-size: 0.9em;
-  width: 90%; /* Allow text to wrap */
-}
-
-.buttons.style1 li.button-wide-rect a {
-  aspect-ratio: 16/9;
-  /* min-height: 5rem; /* Less relevant */
-  flex-direction: row;
-  align-items: center; 
-  justify-content: center; 
-  padding: 1rem; /* Consistent padding */
-}
-
-.buttons.style1 li.button-wide-rect a .label {
-  margin-left: 0.75em; 
-  font-size: 0.9em; 
-}
-
-.buttons.style1 li.button-wide-rect a svg {
-  width: 1.5em; 
-  height: 1.5em;
-  flex-shrink: 0; 
-}
-
-.buttons.style1 li.button-tall-rect a {
-  aspect-ratio: 9/16; 
-  /* min-height: 8rem; /* Less relevant */
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem; /* Consistent padding */
-}
-
-.buttons.style1 li.button-tall-rect a .label {
-  margin-top: 0.5em; 
-  font-size: 0.9em;
-  width: 90%; 
-}
-
-.buttons.style1 li.button-tall-rect a svg {
-  width: 2em; 
-  height: 2em; 
-  margin-bottom: 0.25em; 
-}
-
-
+/* Button Shapes - These will be defined within the mobile media query */
 /* --------------------------------------------------
    Icon Styles
    -------------------------------------------------- */
@@ -1183,53 +1090,106 @@ h1.style2 span.p:nth-child(n + 2), h2.style2 span.p:nth-child(n + 2), h3.style2 
     --spacing: 0rem;
   }
 
-  .buttons.style1 {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 0.75rem; /* Adjusted gap for smaller screens */
+  /* Mobile-Specific Button Styles */
+  ul#buttons04.style1 {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Dynamic Bento grid */
+    align-items: stretch; 
+    justify-items: stretch;
+    gap: 1rem; /* Consistent gap, adjust if needed for mobile */
   }
 
   .buttons.style1 li a {
     font-size: 0.95em; 
     padding: 0.75rem; 
-    min-height: 3.5rem; /* Keep min-height for smaller screens where stretch might be too small */
-    border-radius: 1rem; /* Slightly smaller radius for smaller screens */
+    min-height: 3.5rem; /* Fallback min-height for smaller cells */
+    height: 100%; /* Ensure buttons fill cell height in Bento */
+    border-radius: 1rem; 
+  }
+
+  /* --- Mobile Button Shapes --- */
+  .buttons.style1 li.button-standard-rect a {
+    aspect-ratio: auto; /* Override desktop aspect ratio */
+    min-height: 4rem; 
+     /* padding: 1rem; /* Ensure padding consistency if needed */
   }
 
   .buttons.style1 li.button-large-square a {
+    aspect-ratio: 1/1;
     min-height: 8rem; /* Or adjust based on typical cell size */
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
   }
   .buttons.style1 li.button-large-square a svg {
     height: 2rem;
     width: 2em;
+    margin-right: 0; 
+    margin-bottom: 0.5em; 
+  }
+  .buttons.style1 li.button-large-square a .label {
+    font-size: 0.9em;
+    width: 90%;
   }
 
   .buttons.style1 li.button-portrait-rect a {
+    aspect-ratio: 2/3;
     min-height: 8rem; /* Or adjust based on typical cell size */
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
   }
   .buttons.style1 li.button-portrait-rect a svg {
     height: 1.8rem;
     width: 1.8em;
+    margin-right: 0;
+    margin-bottom: 0.5em;
+  }
+   .buttons.style1 li.button-portrait-rect a .label {
+    font-size: 0.9em;
+    width: 90%;
   }
 
   .buttons.style1 li.button-wide-rect a {
+    aspect-ratio: 16/9;
     min-height: 4.5rem; /* Or adjust based on typical cell size */
-    padding: 0.75rem;
+    padding: 0.75rem; /* Keep specific padding for wide if needed */
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
   }
    .buttons.style1 li.button-wide-rect a .label {
     font-size: 0.85em;
+    margin-left: 0.75em; 
   }
   .buttons.style1 li.button-wide-rect a svg {
     width: 1.3em;
     height: 1.3em;
+    flex-shrink: 0;
   }
 
   .buttons.style1 li.button-tall-rect a {
+    aspect-ratio: 9/16;
     min-height: 7rem; /* Or adjust based on typical cell size */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
   }
   .buttons.style1 li.button-tall-rect a svg {
     width: 1.8em;
     height: 1.8em;
+    margin-right: 0;
+    margin-bottom: 0.25em;
   }
+  .buttons.style1 li.button-tall-rect a .label {
+    font-size: 0.9em;
+    width: 90%;
+  }
+  /* --- End Mobile Button Shapes --- */
 
 
   .text-style-4,
@@ -1480,25 +1440,28 @@ h1.style2 span.p:nth-child(n + 2), h2.style2 span.p:nth-child(n + 2), h3.style2 
   .buttons.style1 li a {
     min-height: 3rem; 
     font-size: 0.9em;
-    border-radius: 0.75rem; /* Further reduced radius */
+    border-radius: 0.75rem; 
     padding: 0.5rem;
   }
+  .buttons.style1 li.button-standard-rect a { /* Adjust standard for very small */
+    min-height: 3.5rem;
+  }
   .buttons.style1 li.button-large-square a {
-    min-height: 7rem;
+    min-height: 6rem; /* Adjusted for very small screens */
   }
    .buttons.style1 li.button-portrait-rect a {
-    min-height: 7rem;
+    min-height: 6rem; /* Adjusted for very small screens */
   }
 
   .buttons.style1 li.button-wide-rect a {
-    min-height: 4rem;
+    min-height: 3.5rem; /* Adjusted for very small screens */
   }
   .buttons.style1 li.button-tall-rect a {
-    min-height: 6.5rem; 
+    min-height: 6rem;  /* Adjusted for very small screens */
   }
   .buttons.style1 li.button-tall-rect a svg {
-    width: 1.6em;
-    height: 1.6em;
+    width: 1.6em; /* Keep if needed, or adjust */
+    height: 1.6em; /* Keep if needed, or adjust */
   }
 
 
