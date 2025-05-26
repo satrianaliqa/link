@@ -1,13 +1,14 @@
 function applyRandomShapes() {
     const buttonListItems = document.querySelectorAll('#buttons04 li');
-    const shapeClasses = ['button-standard-rect', 'button-large-square', 'button-portrait-rect'];
-    const specialShapeClasses = ['button-large-square', 'button-portrait-rect'];
+    const shapeClasses = ['button-standard-rect', 'button-large-square', 'button-portrait-rect', 'button-wide-rect', 'button-tall-rect'];
+    const specialShapeClasses = ['button-large-square', 'button-portrait-rect', 'button-wide-rect', 'button-tall-rect'];
     
     // Convert NodeList to Array for easier manipulation (shuffle)
     const allButtonLIs = Array.from(buttonListItems);
 
     // 1. Clear existing shape classes from all button LIs
     allButtonLIs.forEach(li => {
+        // Make sure to use the updated shapeClasses array for clearing
         shapeClasses.forEach(cls => li.classList.remove(cls));
         // If inline styles were used (they are not in this version, but good practice to note)
         // li.style.width = '';

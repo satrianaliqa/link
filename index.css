@@ -892,13 +892,13 @@ h1.style2 span.p:nth-child(n + 2), h2.style2 span.p:nth-child(n + 2), h3.style2 
 }
 
 /* Button Shapes */
-.buttons.style1 li a.button-standard-rect {
+.buttons.style1 li.button-standard-rect a {
   /* Default styling is already standard rect */
   /* aspect-ratio: 3/1; /* Optional: if a specific ratio is desired */
   min-height: 4rem; /* Example height */
 }
 
-.buttons.style1 li a.button-large-square {
+.buttons.style1 li.button-large-square a {
   aspect-ratio: 1/1;
   min-height: 10rem; /* Or a fixed height/width like width: 200px; height: 200px; */
   flex-direction: column; /* Arrange icon and text vertically */
@@ -907,19 +907,19 @@ h1.style2 span.p:nth-child(n + 2), h2.style2 span.p:nth-child(n + 2), h3.style2 
   text-align: center;
 }
 
-.buttons.style1 li a.button-large-square svg {
+.buttons.style1 li.button-large-square a svg {
   margin-right: 0; /* Remove right margin for centered icon */
   margin-bottom: 0.5em; /* Space between icon and text */
   height: 2.5rem; /* Larger icon for square button */
   width: 2.5em;
 }
 
-.buttons.style1 li a.button-large-square .label {
+.buttons.style1 li.button-large-square a .label {
   font-size: 0.9em;
   width: 90%; /* Allow text to wrap */
 }
 
-.buttons.style1 li a.button-portrait-rect {
+.buttons.style1 li.button-portrait-rect a {
   aspect-ratio: 2/3;
   min-height: 10rem; /* Example height */
   flex-direction: column; /* Arrange icon and text vertically */
@@ -928,16 +928,57 @@ h1.style2 span.p:nth-child(n + 2), h2.style2 span.p:nth-child(n + 2), h3.style2 
   text-align: center;
 }
 
-.buttons.style1 li a.button-portrait-rect svg {
+.buttons.style1 li.button-portrait-rect a svg {
   margin-right: 0;
   margin-bottom: 0.5em;
   height: 2rem;
   width: 2em;
 }
 
-.buttons.style1 li a.button-portrait-rect .label {
+.buttons.style1 li.button-portrait-rect a .label {
   font-size: 0.9em;
   width: 90%; /* Allow text to wrap */
+}
+
+.buttons.style1 li.button-wide-rect a {
+  aspect-ratio: 16/9;
+  min-height: 5rem; 
+  flex-direction: row;
+  align-items: center; /* Vertically center content in wide rect */
+  justify-content: center; /* Horizontally center content */
+  padding: 0.5rem 1rem;
+}
+
+.buttons.style1 li.button-wide-rect a .label {
+  margin-left: 0.75em; /* Space after icon */
+  font-size: 0.9em; /* Slightly smaller text for potentially constrained height */
+}
+
+.buttons.style1 li.button-wide-rect a svg {
+  width: 1.5em; 
+  height: 1.5em;
+  flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+.buttons.style1 li.button-tall-rect a {
+  aspect-ratio: 9/16; 
+  min-height: 8rem; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0.5rem;
+}
+
+.buttons.style1 li.button-tall-rect a .label {
+  margin-top: 0.5em; /* Space below icon */
+  font-size: 0.9em;
+  width: 90%; /* Allow text to wrap */
+}
+
+.buttons.style1 li.button-tall-rect a svg {
+  width: 2em; 
+  height: 2em; 
+  margin-bottom: 0.25em; /* Consistent margin below icon */
 }
 
 
@@ -1146,20 +1187,40 @@ h1.style2 span.p:nth-child(n + 2), h2.style2 span.p:nth-child(n + 2), h3.style2 
     min-height: 3.5rem;
   }
 
-  .buttons.style1 li a.button-large-square {
+  .buttons.style1 li.button-large-square a {
     min-height: 8rem;
   }
-  .buttons.style1 li a.button-large-square svg {
+  .buttons.style1 li.button-large-square a svg {
     height: 2rem;
     width: 2em;
   }
 
-  .buttons.style1 li a.button-portrait-rect {
+  .buttons.style1 li.button-portrait-rect a {
     min-height: 8rem;
   }
-  .buttons.style1 li a.button-portrait-rect svg {
+  .buttons.style1 li.button-portrait-rect a svg {
     height: 1.8rem;
     width: 1.8em;
+  }
+
+  .buttons.style1 li.button-wide-rect a {
+    min-height: 4.5rem;
+    padding: 0.5rem 0.75rem;
+  }
+   .buttons.style1 li.button-wide-rect a .label {
+    font-size: 0.85em;
+  }
+  .buttons.style1 li.button-wide-rect a svg {
+    width: 1.3em;
+    height: 1.3em;
+  }
+
+  .buttons.style1 li.button-tall-rect a {
+    min-height: 7rem;
+  }
+  .buttons.style1 li.button-tall-rect a svg {
+    width: 1.8em;
+    height: 1.8em;
   }
 
 
@@ -1412,11 +1473,22 @@ h1.style2 span.p:nth-child(n + 2), h2.style2 span.p:nth-child(n + 2), h3.style2 
     min-height: 3rem; /* Adjust min-height for very small screens */
     font-size: 0.9em;
   }
-  .buttons.style1 li a.button-large-square {
+  .buttons.style1 li.button-large-square a {
     min-height: 7rem;
   }
-   .buttons.style1 li a.button-portrait-rect {
+   .buttons.style1 li.button-portrait-rect a {
     min-height: 7rem;
+  }
+
+  .buttons.style1 li.button-wide-rect a {
+    min-height: 4rem;
+  }
+  .buttons.style1 li.button-tall-rect a {
+    min-height: 6.5rem; /* Further reduce min-height for very small screens */
+  }
+  .buttons.style1 li.button-tall-rect a svg {
+    width: 1.6em;
+    height: 1.6em;
   }
 
 
