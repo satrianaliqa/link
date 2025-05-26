@@ -43,23 +43,16 @@ function applyRandomShapes() {
     }
 
     // 4. Apply shapes
-    let specialShapesAppliedCount = 0;
+    // let specialShapesAppliedCount = 0; // No longer needed with the new logic
     for (let i = 0; i < allButtonLIs.length; i++) {
         const li = allButtonLIs[i];
 
         if (i < numSpecialButtons) {
             // This is a special button
-            let randomSpecialShape;
-            // Ensure variety if possible
-            if (specialShapesAppliedCount < specialShapeClasses.length) {
-                 // Assign a unique special shape if we have enough unique shapes for the count
-                randomSpecialShape = specialShapeClasses[specialShapesAppliedCount % specialShapeClasses.length];
-            } else {
-                // If we need more special shapes than unique types, pick randomly
-                randomSpecialShape = specialShapeClasses[Math.floor(Math.random() * specialShapeClasses.length)];
-            }
-            li.classList.add(randomSpecialShape);
-            specialShapesAppliedCount++;
+            // Cycle through specialShapeClasses for variety
+            const shapeToApply = specialShapeClasses[i % specialShapeClasses.length];
+            li.classList.add(shapeToApply);
+            // specialShapesAppliedCount++; // No longer needed
         } else {
             // This is a standard button
             li.classList.add('button-standard-rect');

@@ -834,24 +834,28 @@ h1.style2 span.p:nth-child(n + 2), h2.style2 span.p:nth-child(n + 2), h3.style2 
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
   width: 100%; /* Ensure it spans available width */
+  align-items: stretch; /* Bento UI: Grid items fill their cells */
+  justify-items: stretch; /* Bento UI: Grid items fill their cells */
 }
 
 .buttons.style1 li { /* Ensure li takes full width of grid cell */
   width: 100%;
+  display: flex; /* Allow anchor to stretch if li is stretched */
 }
 
 .buttons.style1 li a {
   display: flex; /* Changed from inline-flex for better control */
   width: 100%; /* Fill grid cell / flex item basis */
+  height: 100%; /* Bento UI: Make anchor fill the li's height */
   min-height: 4rem; /* Default height */
-  height: auto;
+  /* height: auto; /* Replaced by height: 100% for Bento */
   line-height: 1.5; /* Adjusted for better text flow */
-  padding: 1rem; /* Adjusted padding */
+  padding: 1rem; /* Consistent padding */
   vertical-align: middle;
   font-family: 'DM Sans', sans-serif;
   font-size: 1em; /* Adjusted for responsiveness */
   font-weight: 400;
-  border-radius: 0.5rem; /* Adjusted border-radius */
+  border-radius: 1.5rem; /* Bento UI: Larger border radius */
   flex-direction: row; /* Default internal layout */
   justify-content: center; /* Default internal layout */
   align-items: center; /* Default internal layout */
@@ -896,15 +900,17 @@ h1.style2 span.p:nth-child(n + 2), h2.style2 span.p:nth-child(n + 2), h3.style2 
   /* Default styling is already standard rect */
   /* aspect-ratio: 3/1; /* Optional: if a specific ratio is desired */
   min-height: 4rem; /* Example height */
+  /* Padding and other specific layout properties are inherited or defined below */
 }
 
 .buttons.style1 li.button-large-square a {
   aspect-ratio: 1/1;
-  min-height: 10rem; /* Or a fixed height/width like width: 200px; height: 200px; */
-  flex-direction: column; /* Arrange icon and text vertically */
+  /* min-height: 10rem; /* min-height is less relevant when height is 100% and cells stretch */
+  flex-direction: column; 
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding: 1rem; /* Ensure padding is consistent */
 }
 
 .buttons.style1 li.button-large-square a svg {
@@ -921,11 +927,12 @@ h1.style2 span.p:nth-child(n + 2), h2.style2 span.p:nth-child(n + 2), h3.style2 
 
 .buttons.style1 li.button-portrait-rect a {
   aspect-ratio: 2/3;
-  min-height: 10rem; /* Example height */
-  flex-direction: column; /* Arrange icon and text vertically */
+  min-height: 10rem; /* Example height, less relevant with height: 100% */
+  flex-direction: column; 
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding: 1rem; /* Ensure padding is consistent */
 }
 
 .buttons.style1 li.button-portrait-rect a svg {
@@ -942,43 +949,43 @@ h1.style2 span.p:nth-child(n + 2), h2.style2 span.p:nth-child(n + 2), h3.style2 
 
 .buttons.style1 li.button-wide-rect a {
   aspect-ratio: 16/9;
-  min-height: 5rem; 
+  /* min-height: 5rem; /* Less relevant */
   flex-direction: row;
-  align-items: center; /* Vertically center content in wide rect */
-  justify-content: center; /* Horizontally center content */
-  padding: 0.5rem 1rem;
+  align-items: center; 
+  justify-content: center; 
+  padding: 1rem; /* Consistent padding */
 }
 
 .buttons.style1 li.button-wide-rect a .label {
-  margin-left: 0.75em; /* Space after icon */
-  font-size: 0.9em; /* Slightly smaller text for potentially constrained height */
+  margin-left: 0.75em; 
+  font-size: 0.9em; 
 }
 
 .buttons.style1 li.button-wide-rect a svg {
   width: 1.5em; 
   height: 1.5em;
-  flex-shrink: 0; /* Prevent icon from shrinking */
+  flex-shrink: 0; 
 }
 
 .buttons.style1 li.button-tall-rect a {
   aspect-ratio: 9/16; 
-  min-height: 8rem; 
+  /* min-height: 8rem; /* Less relevant */
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1rem 0.5rem;
+  padding: 1rem; /* Consistent padding */
 }
 
 .buttons.style1 li.button-tall-rect a .label {
-  margin-top: 0.5em; /* Space below icon */
+  margin-top: 0.5em; 
   font-size: 0.9em;
-  width: 90%; /* Allow text to wrap */
+  width: 90%; 
 }
 
 .buttons.style1 li.button-tall-rect a svg {
   width: 2em; 
   height: 2em; 
-  margin-bottom: 0.25em; /* Consistent margin below icon */
+  margin-bottom: 0.25em; 
 }
 
 
@@ -1182,13 +1189,14 @@ h1.style2 span.p:nth-child(n + 2), h2.style2 span.p:nth-child(n + 2), h3.style2 
   }
 
   .buttons.style1 li a {
-    font-size: 0.95em; /* Slightly smaller font for smaller buttons */
-    padding: 0.75rem; /* Adjust padding */
-    min-height: 3.5rem;
+    font-size: 0.95em; 
+    padding: 0.75rem; 
+    min-height: 3.5rem; /* Keep min-height for smaller screens where stretch might be too small */
+    border-radius: 1rem; /* Slightly smaller radius for smaller screens */
   }
 
   .buttons.style1 li.button-large-square a {
-    min-height: 8rem;
+    min-height: 8rem; /* Or adjust based on typical cell size */
   }
   .buttons.style1 li.button-large-square a svg {
     height: 2rem;
@@ -1196,7 +1204,7 @@ h1.style2 span.p:nth-child(n + 2), h2.style2 span.p:nth-child(n + 2), h3.style2 
   }
 
   .buttons.style1 li.button-portrait-rect a {
-    min-height: 8rem;
+    min-height: 8rem; /* Or adjust based on typical cell size */
   }
   .buttons.style1 li.button-portrait-rect a svg {
     height: 1.8rem;
@@ -1204,8 +1212,8 @@ h1.style2 span.p:nth-child(n + 2), h2.style2 span.p:nth-child(n + 2), h3.style2 
   }
 
   .buttons.style1 li.button-wide-rect a {
-    min-height: 4.5rem;
-    padding: 0.5rem 0.75rem;
+    min-height: 4.5rem; /* Or adjust based on typical cell size */
+    padding: 0.75rem;
   }
    .buttons.style1 li.button-wide-rect a .label {
     font-size: 0.85em;
@@ -1216,7 +1224,7 @@ h1.style2 span.p:nth-child(n + 2), h2.style2 span.p:nth-child(n + 2), h3.style2 
   }
 
   .buttons.style1 li.button-tall-rect a {
-    min-height: 7rem;
+    min-height: 7rem; /* Or adjust based on typical cell size */
   }
   .buttons.style1 li.button-tall-rect a svg {
     width: 1.8em;
@@ -1470,8 +1478,10 @@ h1.style2 span.p:nth-child(n + 2), h2.style2 span.p:nth-child(n + 2), h3.style2 
     gap: 0.5rem; /* Further reduced gap for very small screens */
   }
   .buttons.style1 li a {
-    min-height: 3rem; /* Adjust min-height for very small screens */
+    min-height: 3rem; 
     font-size: 0.9em;
+    border-radius: 0.75rem; /* Further reduced radius */
+    padding: 0.5rem;
   }
   .buttons.style1 li.button-large-square a {
     min-height: 7rem;
@@ -1484,7 +1494,7 @@ h1.style2 span.p:nth-child(n + 2), h2.style2 span.p:nth-child(n + 2), h3.style2 
     min-height: 4rem;
   }
   .buttons.style1 li.button-tall-rect a {
-    min-height: 6.5rem; /* Further reduce min-height for very small screens */
+    min-height: 6.5rem; 
   }
   .buttons.style1 li.button-tall-rect a svg {
     width: 1.6em;
